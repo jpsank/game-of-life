@@ -1,6 +1,7 @@
 import random,math
 import numpy as np
 from tkinter import*
+import presets
 
 # Rules:
 # Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
@@ -43,7 +44,7 @@ def start():
     menubar.entryconfig("Randomize", state='disabled')
     Started = True
     index = 0
-    cProfile.run('simulate()')
+    simulate()
     while Started and len(Coordinates) > 0:
         simulate()
         if index % STEP == 0:
@@ -141,12 +142,7 @@ def scroll_move(event):
 Started = False
 
 
-Presets = {}
-
-presetTXT = ''.join(('+'.join(open('presets.txt','r').read().split('\n\n'))).split('\n')).split('+')
-for preset in presetTXT:
-    exec("Presets[preset[:preset.find(' =')]] = "+''.join(preset[preset.find(' =')+2:].split('\n')))
-
+print(Presets)
 
 tk = Tk()
 tk.title("John Conway's Game of Life")
