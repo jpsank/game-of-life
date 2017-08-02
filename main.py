@@ -1,7 +1,7 @@
 import random,math
 import numpy as np
 from tkinter import*
-import presets
+from presets import*
 
 # Rules:
 # Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
@@ -140,9 +140,6 @@ def scroll_move(event):
 
 
 Started = False
-
-
-print(Presets)
 
 tk = Tk()
 tk.title("John Conway's Game of Life")

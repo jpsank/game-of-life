@@ -15,9 +15,6 @@ def tileMap(coords,tilesize,tag):
             else:
                 canvas.create_rectangle(x * tilesize, y * tilesize, (x * tilesize) + tilesize,
                                         (y * tilesize) + tilesize, fill='', outline='light grey', tags=tag)
-    #for pos in coords:
-    #    canvas.create_rectangle(pos[0]*tilesize,pos[1]*tilesize, (pos[0]*tilesize) + tilesize, (pos[1]*tilesize) + tilesize,
-    #                            fill='black', outline='', tags=tag)
 
 
 def click(event):
