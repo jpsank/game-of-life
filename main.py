@@ -38,6 +38,11 @@ def simulate():
     Coordinates = [ii for n, ii in enumerate(Coordinates) if ii not in Coordinates[:n]]
 
 
+def getRelativePos(event):
+    canvas = event.widget
+    return canvas.canvasx(event.x),canvas.canvasy(event.y)
+
+
 def start():
     global Coordinates,Started,menubar
     menubar.entryconfig("Start", label="Pause", command=pause)
@@ -94,15 +99,17 @@ def set_step(step):
 
 
 def click(event):
-    if [int(event.x/TILESIZE),int(event.y/TILESIZE)] not in Coordinates:
-        Coordinates.append([int(event.x / TILESIZE), int(event.y / TILESIZE)])
+    x,y = getRelativePos(event)
+    if [int(x/TILESIZE),int(y/TILESIZE)] not in Coordinates:
+        Coordinates.append([int(x / TILESIZE), int(y / TILESIZE)])
         tileMap(Coordinates, TILESIZE, 'tilemap')
         canvas.update()
 
 
 def delete(event):
+    x, y = getRelativePos(event)
     for i in range(len(Coordinates)):
-        if Coordinates[i] == [int(event.x/TILESIZE), int(event.y/TILESIZE)]:
+        if Coordinates[i] == [int(x/TILESIZE), int(y/TILESIZE)]:
             del Coordinates[i]
             break
     tileMap(Coordinates, TILESIZE, 'tilemap')
@@ -145,9 +152,8 @@ tk = Tk()
 tk.title("John Conway's Game of Life")
 
 menubar = Menu(tk)
+
 presetmenu = Menu(menubar, tearoff=0)
-# presetmenu.add_command(label="None", command=open)
-# presetmenu.add_separator()
 for p in Presets:
     presetmenu.add_command(label=p, command=lambda name=p: enter_preset(name))
 menubar.add_cascade(label="Presets", menu=presetmenu)
