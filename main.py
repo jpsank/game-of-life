@@ -1,5 +1,4 @@
-import random,math
-import numpy as np
+import random
 from tkinter import*
 from presets import*
 
@@ -11,8 +10,8 @@ from presets import*
 
 TILESIZE = 2
 
-DELAY = 0
-STEP = 1
+DELAY = 0  # delay between frames
+STEP = 1  # step for frames
 
 
 def tileMap(coords,tilesize,tag):
@@ -80,6 +79,7 @@ def pause():
 
 
 def randomize():
+    reset()
     global Coordinates,Started,startButton
     Started = False
     Coordinates = []
