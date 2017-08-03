@@ -43,3 +43,4 @@ In the future, I plan to add the following features:
 
 * More presets to choose from
 * Faster processing
+* More user-friendly preset creation
