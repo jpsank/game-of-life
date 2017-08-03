@@ -15,7 +15,7 @@ To run this program use
 
     python main.py
 
-## Controls
+### Controls
 Once run, you can control the game using the mouse and the menu buttons.
 
 Mouse:
@@ -30,6 +30,13 @@ Menu:
 * Randomize - place cells randomly over a certain range
 * Start/Pause - starts processing, stops processing
 * Reset - Clear cells
+
+### Creating Presets
+To create presets, run presetMaker.py.
+
+You can change the GRID and TILESIZE hyperparameters to make differently sized presets.
+
+Leftclick to place, Rightclick to erase, and Enter to print the array, which can be used to add the new preset to the presets.py file dictionary.
 
 ## Future Developments
 In the future, I plan to add the following features:
